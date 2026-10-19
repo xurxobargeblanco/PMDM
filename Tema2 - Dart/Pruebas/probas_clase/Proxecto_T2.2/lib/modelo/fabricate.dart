@@ -1,0 +1,4 @@
+enum FabricantePeza {
+  SMC,
+  Siemmens
+}
