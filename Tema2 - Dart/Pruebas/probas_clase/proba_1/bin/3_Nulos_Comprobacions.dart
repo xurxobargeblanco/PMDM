@@ -50,11 +50,11 @@ void main(){
 
   // Metodo is
 
-  if (numero is int) {
-    print(numero.isEven); // true
-  } else {
-    print('Non é un enteiro');
-  }
+  // if (numero is int) {
+  //  print(numero.isEven); // true
+  // } 
+  // print('Non é un enteiro');
+  
 
   // 3.4 Un alcume por defecto
 

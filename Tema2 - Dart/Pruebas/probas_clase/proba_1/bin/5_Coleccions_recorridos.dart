@@ -32,6 +32,13 @@ void main(){
 
   print("${nomes[0]} ${nomes[2]}");
 
+  // 5.5 Engadir elementos
+
+  final elemntos = [];
+
+  elemntos.add(1);
+
+  elemntos.addAll([2,3]);
 
   // 5.6 Cambiar e eliminar posicións
 
@@ -62,6 +69,14 @@ void main(){
 
   print(indice);     
   print(tenBanana);  
+
+  // 5.9 Engadir só se existe 
+
+  List<String> lenguaxes = ["Java","Dart","Python","HTML5","KOP"];
+
+  if(!lenguaxes.contains("Dart")){
+    lenguaxes.add('Dart');
+  }print('Ya existe Dart');
 
   // 5.10 Accede a unha matriz 
 

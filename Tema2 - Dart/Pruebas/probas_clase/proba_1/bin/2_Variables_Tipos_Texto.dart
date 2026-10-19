@@ -7,6 +7,8 @@ void main() {
 
 var nome1 = 'Xurxo';
 var idade1 = 22;
+print(nome1);
+print(idade1);
 
 // nome = 25; => A variable esta inicialiada como un String polo tanto non deixa reasignar un dato int.
 // idade = 'Xurxo? => A varible non acepta a reasignación como no anterior caso.
@@ -15,7 +17,11 @@ var idade1 = 22;
 
 double saldo1 = 25.0;
 bool estarActivo1 = true;
-Object datoxenerico1 = 'Xurxo'; 
+Object datoxenerico1 = 'Xurxo';
+print(saldo1);
+print(estarActivo1);
+print(datoxenerico1);
+
 
 datoxenerico1 = 25; // Deixa reasignar xa que object e o pai dos demais tipos de variables.
 
@@ -25,11 +31,19 @@ String nome2 = 'Iria';
 int idade2 = 19;
 double nota1 = 7.5;
 bool activo1 = true;
+print(nome2);
+print(idade2);
+print(nota1);
+print(activo1);
+
 
 // 2.5 Final e const:
 
 const pi = 3.14159;
 final horaActual1 = DateTime.now();
+print(pi);
+print(horaActual1);
+
 // const dataActual1 = DateTime.now(); => DateTime.now() non acepta const no construcctor.
 
 // 2.6 Interpolar un nome de usuario:

@@ -37,6 +37,50 @@ void main(){
 
   // 4.4 Combinar condicións
 
+  bool tenEntrada = true;
+  bool eVIP = false;
+  bool estaBloqueado = false;
+
+  if ((tenEntrada || eVIP) && !estaBloqueado) {
+    print("Acceso concedido: Podes entrar ao evento.");
+  } else {
+    print("Acceso denegado.");
+  }
+
+// 4.5 Unha decisión co ternario
+
+int idade = 20;
+
+String mensaxe = idade >= 18 ? "É maior de idade" : "É menor de idade";
+print(mensaxe);
+
+// 4.6 Comentar unha condicón
+
+//  Un bloque if avalía unha condición booleana para determinar se é verdadeira
+//  ou falsa. Se a condición se cumpre, o programa executa o bloque de código
+//  interno; se non, saltalo ou pasa ao seguinte else.
+
+// 4.7 Aplicar un desconto
+
+double precio = 22.5;
+bool descuento = true;
+
+if(descuento){
+  precio *= 0.9;
+}
+
+print('Aplicouse un desconto deo 10% : $precio');
+
+// 4.8 Repetir equipos
+
+int totalAlumnos = 8;
+int membrosPorEquipo = 3;
+
+int equiposCompletos = totalAlumnos ~/ membrosPorEquipo;
+int alumnosSobrantes = totalAlumnos % membrosPorEquipo;
+
+print("Podense formar $equiposCompletos equipos completos.");
+print("Quedan $alumnosSobrantes alumnos sen equipo.");
 
 }
 
