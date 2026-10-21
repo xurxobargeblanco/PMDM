@@ -2,14 +2,14 @@
 
 import 'package:proxecto_t2/modelo/Fabricante.dart';
 
-class Pieza{
+class Peza{
   final String codigo;
   FabricantePeza fabricantePeza;
   String familia;
   String spec;
   int stock;
 
-  Pieza({
+  Peza({
     required this.codigo,
     required this.fabricantePeza,
     required this.familia,

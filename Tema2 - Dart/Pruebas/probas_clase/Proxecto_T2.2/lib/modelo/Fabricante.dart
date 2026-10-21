@@ -1,4 +1,11 @@
 enum FabricantePeza {
   SMC,
-  Siemmens
+  Siemens,
+  Festo,
+  SchneiderElectric,
+  ABB,
+  Parker,
+  Omron,
+  BoschRexroth,
+  WEG
 }
