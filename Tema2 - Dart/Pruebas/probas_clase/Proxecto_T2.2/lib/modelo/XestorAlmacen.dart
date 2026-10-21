@@ -1,11 +1,15 @@
 import 'package:proxecto_t2/modelo/Almacen.dart';
 
-class Xestoralmacen {
+class XestorAlmacen {
   final Almacen almacen;
 
-  Xestoralmacen(this.almacen);
+  XestorAlmacen(this.almacen);
 
   void cargarDatosExemplo(){
+    
+  }
+
+  void modificar(String codigo){
     
   }
 
