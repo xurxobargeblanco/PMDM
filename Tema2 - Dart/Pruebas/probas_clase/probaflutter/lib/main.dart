@@ -22,7 +22,26 @@ class PantallaPrincipal extends StatelessWidget {
       appBar: AppBar(
         title: Text("App Bar - Pantalla Principal")
       ),
-      body: Text("Body do Scaffold")
+      body: MiColumna()
     );
   }
 }
+
+class MiColumna extends StatelessWidget {
+  const new({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text("Body do Scaffold -- "),
+        Text("! ola ¡"),
+        Text("! ola ¡")
+
+      ],
+    );
+  }
+}
+

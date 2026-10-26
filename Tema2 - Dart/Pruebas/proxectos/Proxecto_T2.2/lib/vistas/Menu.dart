@@ -11,8 +11,17 @@ class Menu {
     return pedir(mensaxe).toUpperCase();
   }
 
-  void pedirEnteiro(){
+  int pedirEnteiro(String mensaxe){
+    while(true) {
+      final texto = pedir(mensaxe);
+      final numero = int.tryParse(texto);
 
+      if(numero != null && numero >= 0){
+        return numero;
+      }
+
+      print('Introduce un número válido maior ou igual a 0.');
+    }
   }
 
   void mostrarMenu(){
