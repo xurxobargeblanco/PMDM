@@ -20,28 +20,31 @@ class PantallaPrincipal extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("App Bar - Pantalla Principal")
+        title: Text("App Bar - Pantalla Principal",textAlign: TextAlign.center,maxLines: 2,overflow: TextOverflow.fade,)
       ),
-      body: MiColumna()
+      body: Texto()
     );
   }
 }
 
-class MiColumna extends StatelessWidget {
+class Texto extends StatelessWidget {
+  String texto = "";
   const new({
-    super.key,
+    required this.texto,
+    super.key
   });
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text("Body do Scaffold -- "),
-        Text("! ola ¡"),
-        Text("! ola ¡")
-
-      ],
-    );
+    return Text('Body - Pantalla Principal',style: TextStyle(
+      fontSize: 30.0,
+      fontWeight: FontWeight.bold,
+      color: Colors.blueAccent,
+      backgroundColor: Colors.white60,
+      letterSpacing: 5.0,
+      height: 2.5
+    ),);
   }
 }
+
 
