@@ -1,12 +1,12 @@
 import 'package:proxecto_t2/modelo/Peza.dart';
-import 'package:proxecto_t2/vistas/menu.dart';
+import 'package:proxecto_t2/vistas/lector.dart';
 
-class Almacen {
+class RepositorioPezas {
   final Map<String,Peza> _pezas = {};
-  final menu = Menu();
+  final lector = Lector();
 
   void engadir(Peza peza){
-    final codigo = menu.pedirCodigo('Introduce o código da pieza');
+    final codigo = lector.pedirCodigo('Introduce o código da pieza');
 
     if (codigo.isEmpty) {
       print('O código é obrigatorio.');
@@ -29,7 +29,7 @@ class Almacen {
       print('A peza con codigo $codigo non existe no almacen');
     }
 
-    final confirmar = menu.pedir('Desea eliminar a peza $codigo ? (S/N)');
+    final confirmar = lector.pedir('Desea eliminar a peza $codigo ? (S/N)');
 
     return false;
   }
