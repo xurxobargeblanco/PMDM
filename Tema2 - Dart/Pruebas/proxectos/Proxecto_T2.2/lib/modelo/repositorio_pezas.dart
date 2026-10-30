@@ -1,5 +1,5 @@
 import 'package:proxecto_t2/modelo/Peza.dart';
-import 'package:proxecto_t2/vistas/Menu.dart';
+import 'package:proxecto_t2/vistas/menu.dart';
 
 class Almacen {
   final Map<String,Peza> _pezas = {};

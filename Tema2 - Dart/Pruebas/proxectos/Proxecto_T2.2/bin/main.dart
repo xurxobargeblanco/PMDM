@@ -1,4 +1,4 @@
-import 'package:proxecto_t2/vistas/Menu.dart';
+import 'package:proxecto_t2/vistas/menu.dart';
 void main() {
 
   final menu = Menu();

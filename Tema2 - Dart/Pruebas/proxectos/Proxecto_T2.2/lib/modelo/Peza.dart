@@ -1,6 +1,4 @@
-
-
-import 'package:proxecto_t2/modelo/Fabricante.dart';
+import 'package:proxecto_t2/modelo/fabricante.dart';
 
 class Peza{
   final String codigo;
