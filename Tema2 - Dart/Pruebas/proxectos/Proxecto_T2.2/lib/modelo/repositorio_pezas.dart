@@ -1,37 +1,82 @@
-import 'package:proxecto_t2/modelo/Peza.dart';
-import 'package:proxecto_t2/vistas/lector.dart';
+import 'package:proxecto_t2/modelo/fabricante.dart';
+import 'package:proxecto_t2/modelo/familia_peza.dart';
+
+import 'peza.dart';
+import 'actuador.dart'; // <--- Faltaba este import!
+import 'sensor.dart';
 
 class RepositorioPezas {
-  final Map<String,Peza> _pezas = {};
-  final lector = Lector();
+  final List<Peza> _pezas = [];
 
-  void engadir(Peza peza){
-    final codigo = lector.pedirCodigo('Introduce o código da pieza');
+  List<Peza> get pezas => _pezas;
 
-    if (codigo.isEmpty) {
-      print('O código é obrigatorio.');
-      return;
-    }
-    if (_pezas.containsKey(codigo)) {
-        print('Ese código xa existe no sistema.');
-        return;
-    }
+  bool get isEmpty => _pezas.isEmpty;
 
-      _pezas[codigo] = peza;
+  // Cargar datos iniciais de exemplo (sen duplicar códigos)
+  void cargarDatosExemplo() {
+    if (_pezas.isNotEmpty) return;
 
-      print('Peza $codigo engadida correctamente');
+    _pezas.addAll([
+      Actuador(
+        codigo: 'ACT-001',
+        fabricante: Fabricante(nome: 'Festo', pais: 'Alemaña'),
+        familia: FamiliaPeza.actuadores,
+        spec: 'Cilindro ISO 15552, 40 mm',
+        stock: 12,
+        presionMaxBar: 10,
+      ),
+      Sensor(
+        codigo: 'SEN-301',
+        fabricante: Fabricante(nome: 'Siemens', pais: 'Alemaña'),
+        familia: FamiliaPeza.sensores,
+        spec: 'NPN, 24VDC, NO, M12',
+        stock: 30,
+        sinal: 'NPN',
+      ),
+    ]);
   }
 
-  bool eliminar(String codigo){
-    final peza = _pezas[codigo];
-
-    if(peza == null){
-      print('A peza con codigo $codigo non existe no almacen');
+  // Engadir peza comprobando que non exista o código
+  bool engadirPeza(Peza peza) {
+    if (_pezas.any((p) => p.codigo == peza.codigo)) {
+      return false;
     }
+    _pezas.add(peza);
+    return true;
+  }
 
-    final confirmar = lector.pedir('Desea eliminar a peza $codigo ? (S/N)');
-
+  // Eliminar peza
+  bool eliminarPeza(String codigo) {
+    final index = _pezas.indexWhere((p) => p.codigo == codigo);
+    if (index != -1) {
+      _pezas.removeAt(index);
+      return true;
+    }
     return false;
   }
 
+  // Buscar peza por código exacto
+  Peza? buscarPorCodigo(String codigo) {
+    try {
+      return _pezas.firstWhere((p) => p.codigo == codigo);
+    } catch (_) {
+      return null;
+    }
+  }
+
+  // Busca parcial en varios campos (case-insensitive)
+  List<Peza> buscar(String termo) {
+    final t = termo.toLowerCase();
+    return _pezas.where((p) =>
+      p.codigo.toLowerCase().contains(t) ||
+      p.fabricante.nome.toLowerCase().contains(t) ||
+      p.familia.name.toLowerCase().contains(t) ||
+      p.spec.toLowerCase().contains(t)
+    ).toList();
+  }
+
+  // CALLBACK PROPIO: Método que recibe unha función de condición como argumento
+  List<Peza> filtrarPersonalizado(bool Function(Peza p) criterio) {
+    return _pezas.where(criterio).toList();
+  }
 }

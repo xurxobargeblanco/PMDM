@@ -1,23 +1,35 @@
 import 'package:proxecto_t2/modelo/fabricante.dart';
+import 'package:proxecto_t2/modelo/familia_peza.dart';
 
-class Peza{
+abstract class Peza {
   final String codigo;
-  fabricante fabricante;
-  String familia;
-  String spec;
-  int stock;
+  final Fabricante fabricante;
+  final FamiliaPeza familia;
+  final String spec;
+  int _stock; // Atributo privado para controlar con setter
 
   Peza({
     required this.codigo,
-    required this.fabricantePeza,
+    required this.fabricante,
     required this.familia,
     required this.spec,
-    required this.stock,
+    required this._stock,
   });
 
-  @override
-  String toString(){
-    return '$codigo | $fabricantePeza | $familia | $spec | Stock : $stock';
+  // Getter para o stock
+  int get stock => _stock;
+
+  // Setter con validación para impedir stock negativo
+  set stock(int novoStock) {
+    if (novoStock < 0) {
+      throw ArgumentError('O stock non pode ser negativo.');
+    }
+    _stock = novoStock;
   }
 
+  // Método abstracto (polimorfismo)
+  String obterDetallesEspecificos();
+
+  @override
+  String toString() => '$codigo | ${fabricante.nome} | ${familia.name} | $spec | Stock: $_stock';
 }

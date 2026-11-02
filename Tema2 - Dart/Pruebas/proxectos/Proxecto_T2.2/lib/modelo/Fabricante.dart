@@ -1,10 +1,9 @@
 class Fabricante {
-  final nome;
-  final pais;
+  final String nome;
+  final String pais;
 
-  Fabricante({required this.nome, this.pais = 'Desconocido'});
+  const Fabricante({required this.nome, this.pais = 'España'});
 
-  
   @override
   String toString() => '$nome ($pais)';
 }
