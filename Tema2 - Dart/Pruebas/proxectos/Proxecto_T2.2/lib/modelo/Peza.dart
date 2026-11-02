@@ -2,7 +2,7 @@ import 'package:proxecto_t2/modelo/fabricante.dart';
 
 class Peza{
   final String codigo;
-  FabricantePeza fabricantePeza;
+  fabricante fabricante;
   String familia;
   String spec;
   int stock;
