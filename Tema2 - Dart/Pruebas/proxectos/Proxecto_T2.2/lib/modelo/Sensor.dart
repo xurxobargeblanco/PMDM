@@ -1,7 +1,7 @@
 import 'package:proxecto_t2/modelo/Peza.dart';
 
-class Sensor extends Peza {
-  final String sinal; // NPN, PNP, etc.
+class Sensor extends Peza{
+  final String sinal;
 
   Sensor({
     required super.codigo,

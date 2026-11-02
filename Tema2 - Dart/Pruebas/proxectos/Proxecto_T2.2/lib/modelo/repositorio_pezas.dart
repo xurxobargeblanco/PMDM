@@ -1,8 +1,9 @@
+
 import 'package:proxecto_t2/modelo/fabricante.dart';
 import 'package:proxecto_t2/modelo/familia_peza.dart';
 
 import 'peza.dart';
-import 'actuador.dart'; // <--- Faltaba este import!
+import 'actuador.dart';
 import 'sensor.dart';
 
 class RepositorioPezas {
@@ -12,28 +13,29 @@ class RepositorioPezas {
 
   bool get isEmpty => _pezas.isEmpty;
 
-  // Cargar datos iniciais de exemplo (sen duplicar códigos)
+  // Cargar datos iniciais de exemplo
   void cargarDatosExemplo() {
     if (_pezas.isNotEmpty) return;
 
-    _pezas.addAll([
-      Actuador(
-        codigo: 'ACT-001',
-        fabricante: Fabricante(nome: 'Festo', pais: 'Alemaña'),
-        familia: FamiliaPeza.actuadores,
-        spec: 'Cilindro ISO 15552, 40 mm',
-        stock: 12,
-        presionMaxBar: 10,
-      ),
-      Sensor(
-        codigo: 'SEN-301',
-        fabricante: Fabricante(nome: 'Siemens', pais: 'Alemaña'),
-        familia: FamiliaPeza.sensores,
-        spec: 'NPN, 24VDC, NO, M12',
-        stock: 30,
-        sinal: 'NPN',
-      ),
-    ]);
+    final ejemplo1 = Actuador(
+          codigo: 'ACT-001',
+          fabricante: Fabricante(nome: 'Festo', pais: 'Alemaña'),
+          familia: FamiliaPeza.actuadores,
+          spec: 'Cilindro ISO 15552, 40 mm',
+          stock: 12,
+          presionMaxBar: 10,
+        );
+    final ejemplo2 = Sensor(
+          codigo: 'SEN-301',
+          fabricante: Fabricante(nome: 'Siemens', pais: 'Alemaña'),
+          familia: FamiliaPeza.sensores,
+          spec: 'NPN, 24VDC, NO, M12',
+          stock: 30,
+          sinal: 'NPN',
+        );
+
+      _pezas.add(ejemplo1 as Peza);
+      _pezas.add(ejemplo2 as Peza);
   }
 
   // Engadir peza comprobando que non exista o código
@@ -64,7 +66,7 @@ class RepositorioPezas {
     }
   }
 
-  // Busca parcial en varios campos (case-insensitive)
+  // Busca parcial en varios campos 
   List<Peza> buscar(String termo) {
     final t = termo.toLowerCase();
     return _pezas.where((p) =>
