@@ -1,5 +1,7 @@
 import 'package:proxecto_t2/modelo/Peza.dart';
 
+// Clase filla de peza
+
 class Actuador extends Peza {
   final int presionMaxBar;
 
