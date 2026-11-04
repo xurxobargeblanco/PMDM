@@ -9,7 +9,7 @@ class MyAplicacion extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: "App de exemplo - 2º DAM", home: PantallaPrincipal());
+    return MaterialApp(title: "App de exemplo - 2º DAM", home: PantallaPrincipal(),debugShowCheckedModeBanner: false,);
   }
 }
 
@@ -18,17 +18,20 @@ class PantallaPrincipal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var alumnos = ["Xurxo", "Anxo", "Xoel", "Iago", "Sergio","Iria"];
     return Scaffold(
-      appBar: AppBar(
-        title: Text("App Bar - Pantalla Principal",textAlign: TextAlign.center,maxLines: 2,overflow: TextOverflow.fade,)
-      ),
-      body: Column(
-        children: [
-          Texto("LOCURAAAAA", corFondo: Colors.amberAccent),
-          OMeuIcono(),
-          AMinaImaxeLocal()
-        ]
-      )
+      body: ListView.separated(
+        itemCount: alumnos.length,
+        itemBuilder: (contexto,index){
+          return ListTile(
+            trailing: Icon(
+              Icons.chevron_right
+            ),
+            title: Text(alumnos[index]),           
+          );
+        },
+        separatorBuilder: (context,index) => Divider(),
+        ),
     );
   }
 }
