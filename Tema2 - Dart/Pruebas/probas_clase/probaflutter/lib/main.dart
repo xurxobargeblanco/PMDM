@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+final tema =ThemeData(
+  colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 91, 219, 211))
+);
 void main () {
   runApp(MyAplicacion());
 }
@@ -9,7 +12,7 @@ class MyAplicacion extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: "App de exemplo - 2º DAM", home: PantallaPrincipal(),debugShowCheckedModeBanner: false,);
+    return MaterialApp(title: "App de exemplo - 2º DAM", home: PantallaPrincipal(),debugShowCheckedModeBanner: false, theme: tema,);
   }
 }
 
@@ -18,20 +21,29 @@ class PantallaPrincipal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tema = Theme.of(context);
     var alumnos = ["Xurxo", "Anxo", "Xoel", "Iago", "Sergio","Iria"];
     return Scaffold(
-      body: ListView.separated(
-        itemCount: alumnos.length,
-        itemBuilder: (contexto,index){
-          return ListTile(
-            trailing: Icon(
-              Icons.chevron_right
-            ),
-            title: Text(alumnos[index]),           
-          );
-        },
-        separatorBuilder: (context,index) => Divider(),
-        ),
+      body: Column(
+        children: [
+          Text('Texto 1 =====================',style: tema.textTheme.titleLarge,),
+          SizedBox(
+            height: 16,
+          ),
+          FilledButton(
+            onPressed: () => print('Boton pulsado'),
+            child: Text('Texto 1'),
+          ),
+          Text('Texto 2 ======================'),
+          SizedBox(
+            height: 16,
+          ),
+          ElevatedButton(
+            onPressed: () => print('Boton pulsado'),
+            child: Text('Texto 2'),
+          ),
+        ],
+      ),
     );
   }
 }
