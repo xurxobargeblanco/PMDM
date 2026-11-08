@@ -44,7 +44,7 @@ final horaActual1 = DateTime.now();
 print(pi);
 print(horaActual1);
 
-// const dataActual1 = DateTime.now(); => DateTime.now() non acepta const no construcctor.
+// const dataActual1 = DateTime.now(); => final hora actual podeselle asignar un valor con dateTime.now() (en execucuion).
 
 // 2.6 Interpolar un nome de usuario:
 
