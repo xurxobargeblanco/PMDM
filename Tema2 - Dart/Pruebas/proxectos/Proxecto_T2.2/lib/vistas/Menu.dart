@@ -1,4 +1,4 @@
-import 'package:proxecto_t2/modelo/Actuador.dart';
+import 'package:proxecto_t2/modelo/actuador.dart';
 import 'package:proxecto_t2/modelo/fabricante.dart';
 import 'package:proxecto_t2/modelo/familia_peza.dart';
 
@@ -106,7 +106,7 @@ class Menu {
       presionMaxBar: presion,
     );
 
-    if (repositorio.engadirPeza(novaPeza as Peza)) {
+    if (repositorio.engadirPeza(novaPeza)) {
       print('Peza engadida correctamente.');
     } else {
       print('Erro ao engadir a peza.');

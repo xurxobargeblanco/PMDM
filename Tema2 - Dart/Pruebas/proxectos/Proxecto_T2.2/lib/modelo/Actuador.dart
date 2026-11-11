@@ -1,5 +1,4 @@
-import 'package:proxecto_t2/modelo/Peza.dart';
-
+import 'package:proxecto_t2/modelo/peza.dart';
 // Clase filla de peza
 
 class Actuador extends Peza {

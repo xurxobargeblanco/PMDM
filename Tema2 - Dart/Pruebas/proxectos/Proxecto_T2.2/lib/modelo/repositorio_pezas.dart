@@ -34,8 +34,8 @@ class RepositorioPezas {
           sinal: 'NPN',
         );
 
-      _pezas.add(ejemplo1 as Peza);
-      _pezas.add(ejemplo2 as Peza);
+      _pezas.add(ejemplo1);
+      _pezas.add(ejemplo2);
   }
 
   // Engadir peza comprobando que non exista o código

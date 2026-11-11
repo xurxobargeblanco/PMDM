@@ -1,4 +1,4 @@
-import 'package:proxecto_t2/modelo/Peza.dart';
+import 'package:proxecto_t2/modelo/peza.dart';
 
 class Sensor extends Peza{
   final String sinal;
